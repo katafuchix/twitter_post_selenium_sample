@@ -53,10 +53,12 @@ def send_tweet(text):
     element_text = driver.find_element_by_class_name("notranslate")
     element_text.click()
     element_text.send_keys(text)
+    
     # 画像選択 & アップロード
     image_file_path = "画像ファイルをフルパスで"
     image = glob.glob(image_file_path)
     driver.find_element_by_xpath('//input[@type="file"]').send_keys(image)
+    
     # ツイートボタン
     tweet_button = driver.find_element_by_xpath('//*[@data-testid="tweetButtonInline"]')
     driver.execute_script("arguments[0].click();", tweet_button)
